@@ -33,6 +33,17 @@ print(ts[0])
 
 print(ts[-1])
 >>> 6
+
+print(1 in ts)
+>>> True
+
+print(100 in ts)
+>>> False
+
+for i in Treeset([1,3,1]):
+	print(i)
+>>> 1
+>>> 3
 ```
 
 ### Software Requirements
