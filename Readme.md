@@ -40,7 +40,7 @@ print(1 in ts)
 print(100 in ts)
 >>> False
 
-for i in Treeset([1,3,1]):
+for i in TreeSet([1,3,1]):
 	print(i)
 >>> 1
 >>> 3
