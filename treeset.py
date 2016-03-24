@@ -21,14 +21,18 @@ class TreeSet(object):
 
     def addAll(self, elements):
         for element in elements:
-            if element in self._treeset: continue
+            if element in self: continue
             self.add(element)
 
     def add(self, element):
-        bisect.insort(self._treeset, element)
+        if element not in self:
+            bisect.insort(self._treeset, element)
 
     def ceiling(self, e):
-        self._treeset[bisect.bisect_right(self._treeset, e)]
+        return self._treeset[bisect.bisect_right(self._treeset, e)]
+
+    def floor(self, e):
+        return self._treeset[bisect.bisect_left(self._treeset, e) - 1]
 
     def __getitem__(self, num):
         return self._treeset[num]
@@ -77,6 +81,15 @@ class TreeSet(object):
         elif isinstance(target, list):
             return self._treeset == target
 
+    def __contains__(self, e):
+        """
+        Fast attribution judgment by bisect
+        """
+        try:
+            return e == self._treeset[bisect.bisect_left(self._treeset, e)]
+        except:
+            return False
+
 if __name__ == '__main__':
-    ts = TreeSet([3,7,2,7,1,3])
+    ts = TreeSet([3,7,7,1,3])
     print(ts)
