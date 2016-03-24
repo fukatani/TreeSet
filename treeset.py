@@ -46,7 +46,7 @@ class TreeSet(object):
         """
         Return shallow copy of self.
         """
-        return TreeSet([], self.key)
+        return TreeSet(self._treeset)
 
     def remove(self, element):
         """
@@ -54,7 +54,7 @@ class TreeSet(object):
         """
         try:
             self._treeset.remove(element)
-        except KeyError:
+        except ValueError:
             return False
         return True
 
@@ -70,6 +70,12 @@ class TreeSet(object):
 
     def __str__(self):
         return str(self._treeset)
+
+    def __eq__(self, target):
+        if isinstance(target, TreeSet):
+            return self._treeset == target.treeset
+        elif isinstance(target, list):
+            return self._treeset == target
 
 if __name__ == '__main__':
     ts = TreeSet([3,7,2,7,1,3])
