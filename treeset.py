@@ -29,10 +29,17 @@ class TreeSet(object):
             bisect.insort(self._treeset, element)
 
     def ceiling(self, e):
+        index = bisect.bisect_right(self._treeset, e)
+        if self[index - 1] == e:
+            return e
         return self._treeset[bisect.bisect_right(self._treeset, e)]
 
     def floor(self, e):
-        return self._treeset[bisect.bisect_left(self._treeset, e) - 1]
+        index = bisect.bisect_left(self._treeset, e)
+        if self[index] == e:
+            return e
+        else:
+            return self._treeset[bisect.bisect_left(self._treeset, e) - 1]
 
     def __getitem__(self, num):
         return self._treeset[num]
@@ -92,4 +99,8 @@ class TreeSet(object):
 
 if __name__ == '__main__':
     ts = TreeSet([3,7,7,1,3])
+    print(ts.floor(4))
+    print(ts.ceiling(4))
+    print(ts.floor(3))
+    print(ts.ceiling(3))
     print(ts)

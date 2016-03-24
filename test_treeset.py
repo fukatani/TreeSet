@@ -45,6 +45,8 @@ class TestTreeSet(unittest.TestCase):
 
         self.assertEqual(ts.floor(4), 3)
         self.assertEqual(ts.ceiling(4), 5)
+        self.assertEqual(ts.floor(3), 3)
+        self.assertEqual(ts.ceiling(3), 3)
 
         ts.clear()
         self.assertEqual(ts._treeset, [])
