@@ -26,3 +26,7 @@ class TreeMap(dict):
     def __iter__(self):
         for k in self.sorted_keys:
             yield k
+
+    def values(self):
+        for k in self.sorted_keys:
+            yield self[k]

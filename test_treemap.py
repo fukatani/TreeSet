@@ -31,6 +31,10 @@ class TestTreeMap(unittest.TestCase):
         keys = [k for k in tm]
         self.assertSequenceEqual(["a", "b", "c"], keys)
 
+    def test_values(self):
+        tm = TreeMap({"c": "A", "b": "B", "a": "C"})
+        self.assertSequenceEqual(["C", "B", "A"], list(tm.values()))
+
 
 if __name__ == '__main__':
     unittest.main()
