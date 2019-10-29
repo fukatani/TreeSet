@@ -3,12 +3,17 @@ from treemap import TreeMap
 
 
 class TestTreeMap(unittest.TestCase):
-    def test_keys(self):
+    def test_initialization(self):
         empty = TreeMap()
         self.assertEqual([], list(empty.keys()))
 
         non_empty = TreeMap({5: "a", 4: "b", 3: "c"})
         self.assertSequenceEqual([3, 4, 5], list(non_empty.keys()))
+
+    def test_fromkeys(self):
+        tm = TreeMap.fromkeys("c a b".split())
+        assert isinstance(tm, TreeMap)
+        self.assertSequenceEqual(["a", "b", "c"], list(tm.keys()))
 
     def test_add_item(self):
         tm = TreeMap()
@@ -34,6 +39,11 @@ class TestTreeMap(unittest.TestCase):
     def test_values(self):
         tm = TreeMap({"c": "A", "b": "B", "a": "C"})
         self.assertSequenceEqual(["C", "B", "A"], list(tm.values()))
+
+    def test_clear(self):
+        tm = TreeMap({"key": "Value"})
+        tm.clear()
+        self.assertSequenceEqual([], list(tm.keys()))
 
 
 if __name__ == '__main__':

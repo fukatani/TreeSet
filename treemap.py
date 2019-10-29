@@ -30,3 +30,7 @@ class TreeMap(dict):
     def values(self):
         for k in self.sorted_keys:
             yield self[k]
+
+    def clear(self):
+        super().clear()
+        self.sorted_keys.clear()
