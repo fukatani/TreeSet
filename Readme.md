@@ -1,10 +1,14 @@
 ### Introduction
-"TreeSet" is Binary-tree set like java Treeset.
-When added new element, TreeSet will be sorted automatically.
+"TreeSet" is a Binary-tree set like java TreeSet.
+The TreeSet will be sorted automatically when adding/removing elements.
 Duplicate elements will not be added.
 
+"TreeMap" is a dictionary with sorted keys similar to java TreeMap.
+Keys, iteration, items, values will all return values ordered by key.
+Otherwise it should behave just like the builtin dict.
+
 ### Usage
-Copy treeset.py to any directory.
+Copy treeset.py and treemap.py to any directory.
 
 ```python
 from treeset import TreeSet
@@ -45,6 +49,8 @@ for i in TreeSet([1,3,1]):
 >>> 1
 >>> 3
 ```
+
+Usage of TreeMap is described in test_treemap.py
 
 ### Software Requirements
 Python (2.7 or 3.4)

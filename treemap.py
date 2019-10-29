@@ -2,6 +2,12 @@ from treeset import TreeSet
 
 
 class TreeMap(dict):
+    """
+    "TreeMap" is a dictionary with sorted keys similar to java TreeMap.
+    Keys, iteration, items, values will all return values ordered by key.
+    Otherwise it should behave just like the builtin dict.
+    """
+
     def __init__(self, seq=None, **kwargs):
         if seq is None:
             super().__init__(**kwargs)
