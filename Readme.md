@@ -53,7 +53,7 @@ for i in TreeSet([1,3,1]):
 Usage of TreeMap is described in test_treemap.py
 
 ### Software Requirements
-Python (2.7 or 3.4)
+Python (2.7 or 3.4 or later)
 
 ### License
 Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
