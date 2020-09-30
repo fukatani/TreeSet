@@ -32,14 +32,19 @@ class TreeSet(object):
         index = bisect.bisect_right(self._treeset, e)
         if self[index - 1] == e:
             return e
-        return self._treeset[bisect.bisect_right(self._treeset, e)]
+        try:
+            return self._treeset[bisect.bisect_right(self._treeset, e)]
+        except IndexError:
+            return None
 
     def floor(self, e):
         index = bisect.bisect_left(self._treeset, e)
         if self[index] == e:
             return e
-        else:
-            return self._treeset[bisect.bisect_left(self._treeset, e) - 1]
+        check = self._treeset[bisect.bisect_left(self._treeset, e) - 1]
+        if check <= e:
+            return check
+        return None
 
     def __getitem__(self, num):
         return self._treeset[num]
@@ -94,7 +99,7 @@ class TreeSet(object):
         """
         try:
             return e == self._treeset[bisect.bisect_left(self._treeset, e)]
-        except:
+        except Exception:
             return False
 
 if __name__ == '__main__':
