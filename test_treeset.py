@@ -50,6 +50,10 @@ class TestTreeSet(unittest.TestCase):
 
         ts.clear()
         self.assertEqual(ts._treeset, [])
+        
+        ts = TreeSet([int(x) for x in '934853458236'])
+        self.assertEqual(ts.ceiling(100), None)
+        self.assertEqual(ts.floor(0), None)
 
 if __name__ == '__main__':
     unittest.main()
