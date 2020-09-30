@@ -53,21 +53,15 @@ class TreeSet(object):
         return len(self._treeset)
 
     def clear(self):
-        """
-        Delete all elements in TreeSet.
-        """
+        """Delete all elements in TreeSet."""
         self._treeset = []
 
     def clone(self):
-        """
-        Return shallow copy of self.
-        """
+        """Return shallow copy of self."""
         return TreeSet(self._treeset)
 
     def remove(self, element):
-        """
-        Remove element if element in TreeSet.
-        """
+        """Remove element if element in TreeSet."""
         try:
             self._treeset.remove(element)
         except ValueError:
@@ -75,9 +69,7 @@ class TreeSet(object):
         return True
 
     def __iter__(self):
-        """
-        Do ascending iteration for TreeSet
-        """
+        """Do ascending iteration for TreeSet"""
         for element in self._treeset:
             yield element
 
@@ -92,11 +84,10 @@ class TreeSet(object):
             return self._treeset == target.treeset
         elif isinstance(target, list):
             return self._treeset == target
+        return None
 
     def __contains__(self, e):
-        """
-        Fast attribution judgment by bisect
-        """
+        """Fast attribution judgment by bisect"""
         try:
             return e == self._treeset[bisect.bisect_left(self._treeset, e)]
         except Exception:
